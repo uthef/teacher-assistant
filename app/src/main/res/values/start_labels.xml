@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="greeting">Здравствуйте!</string>
+    <string name="groups">Группы</string>
+    <string name="disciplines">Дисциплины</string>
+    <string name="attendance">Отметить студентов</string>
+    <string name="marks">Проставить баллы</string>
+    <string name="journals">Формирование журналов</string>
+    <string name="schedule">Расписание звонков</string>
+    <string name="copyright">© 2022, Nightcrawler</string>
+</resources>

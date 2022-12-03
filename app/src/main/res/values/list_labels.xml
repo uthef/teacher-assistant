@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="group_list">Список групп</string>
+    <string name="student_list">Список студентов</string>
+
+    <string name="empty_label">
+        Список пуст. Нажмите на кнопку в нижнем правом углу для добавления новых элементов
+    </string>
+
+    <string name="element_addition">Добавление нового элемента</string>
+
+    <string name="remove_item">Удалить</string>
+    <string name="edit_item">Редактировать</string>
+</resources>

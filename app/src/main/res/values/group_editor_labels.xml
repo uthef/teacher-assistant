@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="group_editor_title">Редактирование группы</string>
+    <string name="group_creator_title">Добавление группы</string>
+    <string name="group_name_conflict">Группа с таким именем уже существует</string>
+</resources>
