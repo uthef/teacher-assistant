@@ -23,6 +23,7 @@ public class StartViewModel extends AndroidViewModel {
         super(application);
 
         LocalDatabase.setFile(new File(application.getFilesDir(), LocalDatabase.DEFAULT_PATH));
+        LocalDatabase.defaultDurationSet = application.getResources().getStringArray(R.array.lesson_durations);
         LocalDatabase.getInstance();
     }
 

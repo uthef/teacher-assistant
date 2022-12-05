@@ -15,6 +15,7 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import com.nightcrawler.teacher_assistant.ListViewModel;
 import com.nightcrawler.teacher_assistant.adapters.GroupListAdapter;
 import com.nightcrawler.teacher_assistant.storage.GroupModel;
 import com.nightcrawler.teacher_assistant.storage.LocalDatabase;
@@ -25,14 +26,11 @@ import java.util.Objects;
 
 import static android.app.Activity.RESULT_OK;
 
-public class GroupListViewModel extends AndroidViewModel {
-    private final MutableLiveData<Boolean> labelAnimationRequestMutable = new MutableLiveData<>();
-    private final MutableLiveData<Intent> activityRequestMutable = new MutableLiveData<>();
-    public final LiveData<Boolean> labelAnimationRequest = labelAnimationRequestMutable;
-    public final LiveData<Intent> activityRequest = activityRequestMutable;
+public class GroupListViewModel extends ListViewModel {
     public List<GroupModel> groups;
     private final LocalDatabase dbInstance;
     private GroupListAdapter adapter;
+    private LinearLayoutManager layoutManager;
 
     public GroupListViewModel(@NonNull Application application) {
         super(application);
@@ -41,12 +39,14 @@ public class GroupListViewModel extends AndroidViewModel {
         groups = dbInstance.listGroups();
     }
 
+    @Override
     public void setup(RecyclerView recyclerView, TextView emptyLabel) {
         AppCompatActivity activity = (AppCompatActivity) recyclerView.getContext();
 
         emptyLabel.setAlpha(groups.size() == 0 ? 1f : 0f);
         adapter = new GroupListAdapter(groups, this::onItemSelected, this::onContextMenuItemSelected);
-        recyclerView.setLayoutManager(new LinearLayoutManager(activity));
+        layoutManager = new LinearLayoutManager(activity);
+        recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
     }
 
@@ -88,6 +88,8 @@ public class GroupListViewModel extends AndroidViewModel {
         Collections.sort(groups, (a, b) -> a.getLoweredName().compareTo(b.getLoweredName()));
         int index = groups.indexOf(group);
         dbInstance.insertGroup(group);
+
+        layoutManager.scrollToPosition(index);
         adapter.notifyItemInserted(index);
 
         if (groups.size() == 1) {
@@ -99,6 +101,8 @@ public class GroupListViewModel extends AndroidViewModel {
 
         Collections.sort(groups, (a, b) -> a.getLoweredName().compareTo(b.getLoweredName()));
         int newIndex = groups.indexOf(group);
+
+        layoutManager.scrollToPosition(newIndex);
 
         dbInstance.updateGroup(group);
         adapter.notifyItemChanged(position);

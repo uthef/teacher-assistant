@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="lesson_durations">
+        <item>08:30</item>
+        <item>09:15</item>
+        <item>09:20</item>
+        <item>10:05</item>
+        <item>10:15</item>
+        <item>11:00</item>
+        <item>11:05</item>
+        <item>11:50</item>
+        <item>12:30</item>
+        <item>13:15</item>
+        <item>13:20</item>
+        <item>14:05</item>
+        <item>14:15</item>
+        <item>15:00</item>
+        <item>15:05</item>
+        <item>15:50</item>
+    </string-array>
+</resources>

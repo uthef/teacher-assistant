@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="first_name">Имя</string>
+    <string name="middle_name">Отчество</string>
+    <string name="last_name">Фамилия</string>
+    <string name="subgroup">Подгруппа</string>
+    <string name="kp_variant">Вариант КП</string>
+    <string name="lab_variant">Вариант лаб. работы</string>
+    <string name="first_subgroup">Подгруппа 1</string>
+    <string name="second_subgroup">Подгруппа 2</string>
+</resources>

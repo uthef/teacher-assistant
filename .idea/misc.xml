@@ -8,11 +8,15 @@
         <entry key="..\:/Users/denbr/IdeaProjects/teacher-assistant/app/src/main/res/drawable/ic_baseline_save_24.xml" value="0.5525" />
         <entry key="..\:/Users/denbr/IdeaProjects/teacher-assistant/app/src/main/res/drawable/ic_book_svgrepo_com.xml" value="0.5525" />
         <entry key="..\:/Users/denbr/IdeaProjects/teacher-assistant/app/src/main/res/drawable/ic_launcher_background.xml" value="0.5525" />
+        <entry key="..\:/Users/denbr/IdeaProjects/teacher-assistant/app/src/main/res/layout/activity_discipline_editor.xml" value="0.33125" />
         <entry key="..\:/Users/denbr/IdeaProjects/teacher-assistant/app/src/main/res/layout/activity_group_editor.xml" value="0.5583333333333333" />
         <entry key="..\:/Users/denbr/IdeaProjects/teacher-assistant/app/src/main/res/layout/activity_list.xml" value="0.3171875" />
         <entry key="..\:/Users/denbr/IdeaProjects/teacher-assistant/app/src/main/res/layout/activity_start.xml" value="0.3171875" />
+        <entry key="..\:/Users/denbr/IdeaProjects/teacher-assistant/app/src/main/res/layout/activity_student_editor.xml" value="0.33125" />
         <entry key="..\:/Users/denbr/IdeaProjects/teacher-assistant/app/src/main/res/layout/group_list_item.xml" value="0.5566123188405797" />
+        <entry key="..\:/Users/denbr/IdeaProjects/teacher-assistant/app/src/main/res/layout/student_list_item.xml" value="0.559375" />
         <entry key="..\:/Users/denbr/IdeaProjects/teacher-assistant/app/src/main/res/menu/save_icon_menu.xml" value="0.5739583333333333" />
+        <entry key="..\:/Users/denbr/IdeaProjects/teacher-assistant/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3385" />
       </map>
     </option>
   </component>

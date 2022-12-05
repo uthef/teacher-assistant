@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="discipline_name">Название дисциплины</string>
+    <string name="colloquium_amount">Коллоквиумы</string>
+    <string name="lab_work_amount">Лаб. работы</string>
+    <string name="max_colloquium_grade">Макс. балл за коллоквиум</string>
+    <string name="max_lab_work_grade">Макс. балл за лаб. работу</string>
+</resources>

@@ -12,14 +12,16 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
 
+import com.nightcrawler.teacher_assistant.ListViewModel;
 import com.nightcrawler.teacher_assistant.R;
 import com.nightcrawler.teacher_assistant.activities.editors.GroupEditorActivity;
 import com.nightcrawler.teacher_assistant.viewmodels.GroupListViewModel;
 
+import java.util.List;
 import java.util.Objects;
 
 public class GroupListActivity extends AppCompatActivity {
-    private GroupListViewModel viewModel;
+    private ListViewModel viewModel;
     private ActivityResultLauncher<Intent> editorLauncher;
     public TextView emptyLabel;
 
