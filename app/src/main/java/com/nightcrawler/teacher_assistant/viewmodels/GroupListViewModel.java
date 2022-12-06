@@ -15,7 +15,7 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
-import com.nightcrawler.teacher_assistant.ListViewModel;
+
 import com.nightcrawler.teacher_assistant.adapters.GroupListAdapter;
 import com.nightcrawler.teacher_assistant.storage.GroupModel;
 import com.nightcrawler.teacher_assistant.storage.LocalDatabase;
@@ -26,26 +26,35 @@ import java.util.Objects;
 
 import static android.app.Activity.RESULT_OK;
 
-public class GroupListViewModel extends ListViewModel {
-    public List<GroupModel> groups;
-    private final LocalDatabase dbInstance;
+public class GroupListViewModel extends AndroidViewModel {
+    private List<GroupModel> groups;
+    protected final LocalDatabase dbInstance;
     private GroupListAdapter adapter;
-    private LinearLayoutManager layoutManager;
+    protected LinearLayoutManager layoutManager;
+
+    protected final MutableLiveData<Boolean> labelAnimationRequestMutable = new MutableLiveData<>();
+    protected final MutableLiveData<Intent> editorRequestMutable = new MutableLiveData<>(),
+        nextActivityRequestMutable = new MutableLiveData<>();
+
+    public final LiveData<Boolean> labelAnimationRequest = labelAnimationRequestMutable;
+    public final LiveData<Intent> editorRequest = editorRequestMutable,
+        nextActivityRequest = nextActivityRequestMutable;
 
     public GroupListViewModel(@NonNull Application application) {
         super(application);
 
         dbInstance = LocalDatabase.getInstance();
+        bindList();
+    }
+
+    protected void bindList() {
         groups = dbInstance.listGroups();
     }
 
-    @Override
     public void setup(RecyclerView recyclerView, TextView emptyLabel) {
-        AppCompatActivity activity = (AppCompatActivity) recyclerView.getContext();
-
         emptyLabel.setAlpha(groups.size() == 0 ? 1f : 0f);
         adapter = new GroupListAdapter(groups, this::onItemSelected, this::onContextMenuItemSelected);
-        layoutManager = new LinearLayoutManager(activity);
+        layoutManager = new LinearLayoutManager(recyclerView.getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
     }
@@ -55,7 +64,7 @@ public class GroupListViewModel extends ListViewModel {
             Intent intent = new Intent()
                     .putExtra("position", position)
                     .putExtra("group", groups.get(position));
-            activityRequestMutable.setValue(intent);
+            editorRequestMutable.setValue(intent);
         }
         else
             removeGroup(position);
@@ -64,7 +73,8 @@ public class GroupListViewModel extends ListViewModel {
     }
 
     private void onItemSelected(int position) {
-
+        Intent intent = new Intent().putExtra("group", groups.get(position));
+        nextActivityRequestMutable.setValue(intent);
     }
 
     public void onEditorResult(ActivityResult result) {

@@ -3,6 +3,10 @@
     <string name="group_list">Список групп</string>
     <string name="student_list">Список студентов</string>
 
+    <string name="subgroup_label">Подгруппа</string>
+    <string name="lab_variant_label">Лаб. В</string>
+    <string name="kp_variant_label">КП В</string>
+
     <string name="empty_label">
         Список пуст. Нажмите на кнопку в нижнем правом углу для добавления новых элементов
     </string>

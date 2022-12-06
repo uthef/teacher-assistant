@@ -26,6 +26,7 @@ public class LocalDatabase {
     public static String[] defaultDurationSet;
     private static File file = new File(DEFAULT_PATH);
     private final ObjectRepository<GroupModel> groupRepo;
+    private final ObjectRepository<StudentModel> studentRepo;
 
     private LocalDatabase() {
         MVStoreModule storeModule = MVStoreModule.withConfig()
@@ -38,11 +39,17 @@ public class LocalDatabase {
                 .openOrCreate();
 
         groupRepo = nitrite.getRepository(GroupModel.class);
+        studentRepo = nitrite.getRepository(StudentModel.class);
     }
 
     public List<GroupModel> listGroups() {
         return new ArrayList<>(groupRepo.find().sort(GroupModel.NAME_FIELD).toList());
     }
+
+    public List<StudentModel> listStudents() {
+        return new ArrayList<>(studentRepo.find().sort(StudentModel.LAST_NAME_FIELD).toList());
+    }
+
     public void removeGroup(GroupModel groupModel) { groupRepo.remove(groupModel); }
     public void updateGroup(GroupModel groupModel) { groupRepo.update(groupModel); }
     public void insertGroup(GroupModel groupModel) { groupRepo.insert(groupModel); }

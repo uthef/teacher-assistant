@@ -44,8 +44,9 @@ public class GroupListAdapter extends RecyclerView.Adapter<GroupListAdapter.View
         return groups.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener {
-        protected TextView groupLabel;
+    public static class ViewHolder extends RecyclerView.ViewHolder
+            implements View.OnCreateContextMenuListener {
+        private TextView groupLabel;
         private final GroupListAdapter adapter;
         public ViewHolder(@NonNull @NotNull View itemView, GroupListAdapter adapter) {
             super(itemView);

@@ -71,12 +71,14 @@ public class GroupEditorActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        // Back button
         if (item.getItemId() == android.R.id.home) {
             onBackPressed();
-            setResult(RESULT_CANCELED, new Intent().putExtra("position", position));
+            setResult(RESULT_CANCELED);
             return true;
         }
 
+        // Input validation
         String newGroupName = groupNameEditText.getText().toString().trim();
 
         if (newGroupName.length() == 0) {

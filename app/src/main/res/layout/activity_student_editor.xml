@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                   xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-                                                   android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/student_editor_root"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/last_name_input"
+            android:tag="lastName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
@@ -21,6 +25,7 @@
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/first_name_input"
+            android:tag="firstName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/last_name_input"
@@ -37,6 +42,7 @@
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/middle_name_input"
+            android:tag="middleName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/first_name_input"
@@ -52,7 +58,7 @@
                 android:hint="@string/middle_name"/>
     </com.google.android.material.textfield.TextInputLayout>
     <RadioGroup
-            android:id="@+id/subgroup_radio"
+            android:id="@+id/radio_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -63,7 +69,9 @@
             android:layout_marginTop="16dp"
             android:layout_marginStart="16dp">
         <RadioButton
+                android:id="@+id/first_subgroup_radio"
                 android:layout_width="wrap_content"
+                android:checked="true"
                 android:text="@string/first_subgroup"
                 android:layout_height="match_parent"/>
         <RadioButton
@@ -74,9 +82,10 @@
     </RadioGroup>
     <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/lab_work_variant_input"
+            android:tag="labVariant"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/subgroup_radio"
+            app:layout_constraintTop_toBottomOf="@id/radio_group"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
@@ -93,9 +102,10 @@
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/kp_variant_input"
+            android:tag="kpVariant"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/subgroup_radio"
+            app:layout_constraintTop_toBottomOf="@id/radio_group"
             app:layout_constraintStart_toEndOf="@+id/lab_work_variant_input"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"

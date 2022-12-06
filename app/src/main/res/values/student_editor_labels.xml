@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="student_editor_title">Изменить студента</string>
+    <string name="student_editor_addition_title">Добавить студента</string>
     <string name="first_name">Имя</string>
     <string name="middle_name">Отчество</string>
     <string name="last_name">Фамилия</string>
